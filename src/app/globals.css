@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #0a0a0a;
+  color: #e5e5e5;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+}
+
+/* scan animation - simple border glow */
+@keyframes scan-border {
+  0%, 100% { border-color: #ef4444; }
+  50% { border-color: #991b1b; }
+}
+
+.scanning {
+  animation: scan-border 1.5s ease-in-out infinite;
+}
+
+/* loading bar */
+@keyframes loading-slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.loading-bar {
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #ef4444;
+  animation: loading-slide 1.2s ease-in-out infinite;
+}
+
+/* input focus style */
+input:focus {
+  outline: none;
+  border-color: #ef4444;
+}
